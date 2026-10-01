@@ -1,0 +1,7 @@
+Line	MessageNo	File Name
+0	1	mikroCPIC1618.exe -MSF -DBG -pP16F877 -DL -O11111114 -fo4 -N"C:\Users\Daniel\Documents\upp\practicas programacion\cerradura\cerradura.mcppi" -SP"C:\Users\Daniel\Documents\mikroC PRO for PIC\defs\" -SP"C:\Users\Daniel\Documents\mikroC PRO for PIC\Uses\P16\" -SP"C:\Users\Daniel\Documents\upp\practicas programacion\cerradura\" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl"	 
+hint: 0	1138	Available RAM: 352 [bytes], Available ROM: 8192 [bytes]	 
+diagnostics: 0	126	All files Preprocessed in 1 ms	 
+diagnostics: 0	127	All files Compiled in 15 ms	 
+error: 0	357	main function is not defined	main function is not defined
+error: 0	102	Finished (with errors): 16 oct 2012, 20:33:16	cerradura.mcppi
