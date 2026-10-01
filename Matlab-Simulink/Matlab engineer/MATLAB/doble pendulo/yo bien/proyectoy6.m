@@ -1,0 +1,23 @@
+ 
+% m1=1.9008; 
+m1=.087
+% m2=.7175;
+m2=.0928;
+ I1=.0004;
+ I2=.0005;
+% lc1=.185;
+lc1=.055;
+% lc2=.062;
+lc2=.09;
+l1=.11;
+l2=.18;
+g=9.81;
+%theta1=(m1*lc1*lc1)+(m2*l1*l1)+I1;
+theta2=(m2*lc2*lc2)+I2;%ok
+theta3=(m2*l1*lc2);%en sin *theta 3 falta un 2   y es LC2 no l2
+theta4=(m1*lc1)+(m2*l1);%ok 
+theta5=(m2*lc2);%ok
+theta6=(m1*lc1*lc1)+(m2*l1*l1);%ok 
+theta9=(m2*lc2*lc2);%ok
+betapuntouno=.1;
+betapuntodos=0.1;

@@ -1,0 +1,49 @@
+[System]
+Name='PDpendulo'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Error'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=3
+MF1='N':'trimf',[-3.142 -1.571 0]
+MF2='Z':'trimf',[-1.571 0 1.571]
+MF3='P':'trimf',[0 1.571 3.142]
+
+[Input2]
+Name='Errorpunto'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=3
+MF1='N':'trimf',[-3.142 -1.571 8.882e-16]
+MF2='Z':'trimf',[-1.571 8.882e-16 1.571]
+MF3='P':'trimf',[8.882e-16 1.571 3.142]
+
+[Output1]
+Name='control'
+Range=[-300 300]
+NumMFs=5
+MF1='N':'trimf',[-300 -150 0]
+MF2='Z':'trimf',[-150 0 150]
+MF3='P':'trimf',[0 150 300]
+MF4='MN':'trimf',[-450 -300 -150]
+MF5='MP':'trimf',[150 300 450]
+
+[Rules]
+1 1, 4 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 3 (1) : 1
+3 2, 3 (1) : 1
+3 3, 5 (1) : 1

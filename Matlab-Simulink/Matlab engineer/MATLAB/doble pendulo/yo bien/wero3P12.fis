@@ -1,0 +1,38 @@
+[System]
+Name='wero3P12'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=3
+MF1='N':'trimf',[-5.655 -3.142 0]
+MF2='N':'trimf',[-2.59612169312169 -0.083121693121694 2.42987830687831]
+MF3='P':'trimf',[0 3.142 5.655]
+
+[Input2]
+Name='input2'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=3
+MF1='N':'trimf',[-5.655 -3.142 0]
+MF2='Z':'trimf',[-2 0 2]
+MF3='P':'trimf',[0 3.142 5.655]
+
+[Output1]
+Name='output1'
+Range=[-100 100]
+NumMFs=3
+MF1='N':'trimf',[-100 -50 0]
+MF2='Z':'trimf',[-50 0 50]
+MF3='P':'trimf',[0 50 100]
+
+[Rules]

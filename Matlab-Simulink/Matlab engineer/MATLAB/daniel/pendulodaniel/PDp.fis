@@ -1,0 +1,51 @@
+[System]
+Name='PDp'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Error'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=3
+MF1='Negativo':'trimf',[-5.641 -3.128 -0.6147]
+MF2='Zero':'trimf',[-2.314 0.1995 2.713]
+MF3='Positivo':'trimf',[0.6283 3.142 5.655]
+
+[Input2]
+Name='Error_punto'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=3
+MF1='Negativo':'trimf',[-5.655 -3.142 -0.6283]
+MF2='Zero':'trimf',[-2.513 0 2.513]
+MF3='Positivo':'trimf',[-0.0377 2.476 4.964]
+
+[Output1]
+Name='Control'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=7
+MF1='Nb':'trimf',[-3.142 -2.356 -1.571]
+MF2='Nm':'trimf',[-2.356 -1.571 -0.7854]
+MF3='Ns':'trimf',[-1.571 -0.7854 0]
+MF4='Zero':'trimf',[-0.7854 0 0.7854]
+MF5='Ps':'trimf',[0 0.7854 1.571]
+MF6='Pm':'trimf',[0.7854 1.571 2.356]
+MF7='Pb':'trimf',[1.571 2.356 3.142]
+
+[Rules]
+3 3, 5 (1) : 1
+3 2, 5 (1) : 1
+3 1, 5 (1) : 1
+1 3, 3 (1) : 1
+1 2, 3 (1) : 1
+1 1, 3 (1) : 1
+2 3, 4 (1) : 1
+2 2, 4 (1) : 1
+2 1, 4 (1) : 1

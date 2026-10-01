@@ -1,0 +1,79 @@
+[System]
+Name='FPID'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Error'
+Range=[-3.14159265358979 3.14159265358979]
+NumMFs=3
+MF1='N':'trimf',[-31420 -1.571 0]
+MF2='Z':'trimf',[-1.571 0 1.572]
+MF3='P':'trimf',[0 1.572 31420]
+
+[Input2]
+Name='Errorp'
+Range=[-1.5707963267949 1.5707963267949]
+NumMFs=3
+MF1='N':'trimf',[-1571 -1.2 0]
+MF2='Z':'trimf',[-1.5 0 1.5]
+MF3='P':'trimf',[0 1.2 1571]
+
+[Input3]
+Name='IError'
+Range=[-10 10]
+NumMFs=3
+MF1='N':'trimf',[-10000 -5 0]
+MF2='z':'trimf',[-2 0 2]
+MF3='P':'trimf',[0 5 10000]
+
+[Output1]
+Name='Control'
+Range=[-500 500]
+NumMFs=9
+MF1='Zn':'trimf',[-200 -100 0]
+MF2='Zo':'trimf',[-100 0 100]
+MF3='Zp':'trimf',[0 100 200]
+MF4='Nb':'trimf',[-500 -400 -300]
+MF5='Nm':'trimf',[-400 -300 -200]
+MF6='Ns':'trimf',[-300 -200 -100]
+MF7='Ps':'trimf',[100 200 300]
+MF8='Pm':'trimf',[200 300 400]
+MF9='Pb':'trimf',[300 400 500]
+
+[Rules]
+1 1 1, 4 (1) : 1
+1 2 1, 4 (1) : 1
+1 3 1, 5 (1) : 1
+2 1 1, 4 (1) : 1
+2 2 1, 5 (1) : 1
+2 3 1, 6 (1) : 1
+3 1 1, 5 (1) : 1
+3 2 1, 6 (1) : 1
+3 3 1, 6 (1) : 1
+1 1 2, 6 (1) : 1
+1 2 2, 1 (1) : 1
+1 3 2, 2 (1) : 1
+2 1 2, 1 (1) : 1
+2 2 2, 2 (1) : 1
+2 3 2, 3 (1) : 1
+3 1 2, 2 (1) : 1
+3 2 2, 3 (1) : 1
+3 3 2, 7 (1) : 1
+1 1 3, 7 (1) : 1
+1 2 3, 7 (1) : 1
+1 3 3, 8 (1) : 1
+2 1 3, 7 (1) : 1
+2 2 3, 8 (1) : 1
+2 3 3, 9 (1) : 1
+3 1 3, 8 (1) : 1
+3 2 3, 9 (1) : 1
+3 3 3, 9 (1) : 1

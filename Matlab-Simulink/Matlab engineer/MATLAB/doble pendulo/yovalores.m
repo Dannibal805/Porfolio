@@ -1,0 +1,16 @@
+m1=.73;
+m2=.78;
+l1=.43;
+lc1=.215;
+l2=.38;
+lc2=.19;
+I1=1;   %tal vez sea otro valor y I2 tambien 
+I2=1;
+g=9.81;
+phi1=m2*lc2*lc2;
+phi2=l1*lc2*m2;
+phi3=m1*g*lc1;
+phi4=m2*g*lc2
+phi5=m2*g*l1;
+phi6=m2*l1*l1;
+phi7=m1*lc1*lc1;

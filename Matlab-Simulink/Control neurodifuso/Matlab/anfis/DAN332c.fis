@@ -1,0 +1,78 @@
+[System]
+Name='DAN332c'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=18
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='input1'
+Range=[-1 1]
+NumMFs=3
+MF1='in1mf1':'trapmf',[-1.7 -1.3 -0.489124038220473 -0.170036802966032]
+MF2='in1mf2':'trapmf',[-0.371180548345395 -0.0598072002604112 0.500586879328825 1.08332667729637]
+MF3='in1mf3':'trapmf',[0.0303517843137029 0.399213924805014 1.3 1.7]
+
+[Input2]
+Name='input2'
+Range=[-1 1]
+NumMFs=3
+MF1='in2mf1':'trapmf',[-1.7 -1.3 -0.347967050519274 -0.280537705823953]
+MF2='in2mf2':'trapmf',[-0.660690901942307 -0.111170676959897 0.290236350512701 0.671141051320149]
+MF3='in2mf3':'trapmf',[0.438044459175472 0.683241847569936 1.3 1.7]
+
+[Input3]
+Name='input3'
+Range=[-35.09 5.63]
+NumMFs=2
+MF1='in3mf1':'trapmf',[-63.594 -47.306 -22.8557584122677 -3.63131823526422]
+MF2='in3mf2':'trapmf',[-26.0424470432577 -6.57280983309458 17.846 34.134]
+
+[Output1]
+Name='output'
+Range=[-35.09 5.63]
+NumMFs=18
+MF1='out1mf1':'constant',[-27.9431158027635]
+MF2='out1mf2':'constant',[-3.20556464482155]
+MF3='out1mf3':'constant',[-27.5742917310108]
+MF4='out1mf4':'constant',[-1.47987098270573]
+MF5='out1mf5':'constant',[0]
+MF6='out1mf6':'constant',[0]
+MF7='out1mf7':'constant',[-32.3146449414164]
+MF8='out1mf8':'constant',[1.22263019169009]
+MF9='out1mf9':'constant',[-29.4927612187208]
+MF10='out1mf10':'constant',[0.105081426340007]
+MF11='out1mf11':'constant',[-18.5074312732733]
+MF12='out1mf12':'constant',[2.20891535121592]
+MF13='out1mf13':'constant',[-54.8795469665551]
+MF14='out1mf14':'constant',[0]
+MF15='out1mf15':'constant',[-35.1443158273137]
+MF16='out1mf16':'constant',[1.67277961823283]
+MF17='out1mf17':'constant',[-28.8130966582028]
+MF18='out1mf18':'constant',[-4.42496311700171]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 2 (1) : 1
+1 2 1, 3 (1) : 1
+1 2 2, 4 (1) : 1
+1 3 1, 5 (1) : 1
+1 3 2, 6 (1) : 1
+2 1 1, 7 (1) : 1
+2 1 2, 8 (1) : 1
+2 2 1, 9 (1) : 1
+2 2 2, 10 (1) : 1
+2 3 1, 11 (1) : 1
+2 3 2, 12 (1) : 1
+3 1 1, 13 (1) : 1
+3 1 2, 14 (1) : 1
+3 2 1, 15 (1) : 1
+3 2 2, 16 (1) : 1
+3 3 1, 17 (1) : 1
+3 3 2, 18 (1) : 1

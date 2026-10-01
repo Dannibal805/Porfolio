@@ -1,0 +1,30 @@
+[System]
+Name='Pfuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Error'
+Range=[-0.05 0.05]
+NumMFs=3
+MF1='mf1':'trimf',[-0.09 -0.05 -0.01]
+MF2='mf2':'trimf',[-0.04 0 0.04]
+MF3='mf3':'trimf',[0.01 0.05 0.09]
+
+[Output1]
+Name='control'
+Range=[-5 5]
+NumMFs=3
+MF1='mf1':'trimf',[-9 -5 -1]
+MF2='mf2':'trimf',[-4 0 4]
+MF3='mf3':'trimf',[1 5 9]
+
+[Rules]

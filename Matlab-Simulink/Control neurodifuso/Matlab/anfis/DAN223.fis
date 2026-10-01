@@ -1,0 +1,65 @@
+[System]
+Name='DAN223'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=12
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='input1'
+Range=[-1 1]
+NumMFs=2
+MF1='in1mf1':'trapmf',[-2.4 -1.6 -0.386394634138911 0.617122742549796]
+MF2='in1mf2':'trapmf',[-0.573810761759773 0.408823812709626 1.6 2.4]
+
+[Input2]
+Name='input2'
+Range=[-1 1]
+NumMFs=2
+MF1='in2mf1':'trapmf',[-2.4 -1.6 -0.562009434550171 0.344929732603107]
+MF2='in2mf2':'trapmf',[-0.0289908640442994 0.0534563425166084 1.6 2.4]
+
+[Input3]
+Name='input3'
+Range=[-35.09 5.63]
+NumMFs=3
+MF1='in3mf1':'trapmf',[-49.342 -41.198 -28.9720918732804 -20.7745982463914]
+MF2='in3mf2':'trapmf',[-28.9827133767563 -20.8280649858754 -8.62612766881747 -0.457048312520327]
+MF3='in3mf3':'trapmf',[-8.66935986181485 -0.482123407698629 11.738 19.882]
+
+[Output1]
+Name='output'
+Range=[-35.09 5.63]
+NumMFs=12
+MF1='out1mf1':'constant',[-28.5897335991505]
+MF2='out1mf2':'constant',[-17.6937653036148]
+MF3='out1mf3':'constant',[2.08155306739865]
+MF4='out1mf4':'constant',[-29.489296463136]
+MF5='out1mf5':'constant',[-25.1403318156478]
+MF6='out1mf6':'constant',[-12.5187192366533]
+MF7='out1mf7':'constant',[-34.3034759410775]
+MF8='out1mf8':'constant',[-5.19574171028953]
+MF9='out1mf9':'constant',[-0.577782068512967]
+MF10='out1mf10':'constant',[-30.4635576577173]
+MF11='out1mf11':'constant',[-11.927876001425]
+MF12='out1mf12':'constant',[12.5237670569339]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 2 (1) : 1
+1 1 3, 3 (1) : 1
+1 2 1, 4 (1) : 1
+1 2 2, 5 (1) : 1
+1 2 3, 6 (1) : 1
+2 1 1, 7 (1) : 1
+2 1 2, 8 (1) : 1
+2 1 3, 9 (1) : 1
+2 2 1, 10 (1) : 1
+2 2 2, 11 (1) : 1
+2 2 3, 12 (1) : 1

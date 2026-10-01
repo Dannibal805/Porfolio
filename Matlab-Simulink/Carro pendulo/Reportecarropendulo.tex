@@ -1,0 +1,229 @@
+\documentclass[dvipdfm,10pt,american,letterpaper,conference]{IEEEtran}
+
+\usepackage{amsfonts}
+\usepackage{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[noend]{algorithmic}
+\usepackage[centerlast,small]{caption2}
+\usepackage{color}
+\usepackage{fixmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{parskip}
+
+
+
+
+
+
+\setcounter{MaxMatrixCols}{10}
+
+
+\begin{document}
+
+\title{Linealización de un segway robot}
+\author{ Azael Hayyim Garcia Glores$^1$, E-mail:azaelgarcia@hotmail.com\\ Edgar Rafael Hernández Rios $^1$,E-mail:edgar\_hdez94@hotmail.com \\
+\\
+{\ $^1$ Universidad Politecnica de Pachuca, UPPachuca}, Hidalgo, México\\
+} \maketitle
+
+
+
+\begin{abstract}
+	
+\
+
+El documento contiene los pasos que se realizaron para la linealización de un carro controlado por un pendulo invertido (segway robot) partiendo la dinamica del sistema obtenida por Euler-Lagrange, su obtencion en espacio de estados para finalmente simular el sistema utilizando el software matematico MATLAB.
+
+
+\end{abstract}
+
+
+
+\begin{IEEEkeywords}
+
+linealizar el sistema, brazo robótico, dinamica del sistema,Euler-Lagrange.
+
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+
+\section{INTRODUCTION}
+	\
+	Los vehículos personales son una tendencia hoy en dia, y se presentan nuevos prototipos, en este caso analizaremos un caso en particular, el segway robot.Este robot consta de un vehiculo diferencial el cual es controlado mediante un pendulo invertido que define la direccion y el giro de carro.
+
+\subsection {Modelo matematico}	
+Un modelo matematico es una herramienta muy util hoy en dia, ya que consta de una aproximacion teorica de un sistema físico por esta razon se puede estudiar el sistema, comprendiendolo, prediciendolo y controlar su comportamiento.
+Para modelar un sistema se toman en cuenta distintas variables, para aproximar el resultado al real sin llegar a dificultar el preoceso de los calculos. Existen dos tipos de sistemas, que son:
+\begin{itemize}
+	\item Sistemas lineales: Se nombran sistemas lineales a aquellos que a una entrada cumple con las propiedades de superposición (aditividad y homegeneidad), estos sistemas son faciles de estudiar y predecir su comportamiento.
+	
+	\
+	\item Sistemas no lineales: Los sistemas no lineales son aquellos sistemas que no cumplen con la propiedades de superposición, por lo que los lleva a que no tengan soluciones exactas o ser sistemas caoticos, por lo tanto no se pueden reducir a una forma simple ni se pueden resolver. 
+\end{itemize}
+
+
+
+
+
+\subsection {Dinámica de un sistema}
+La dinámica de un sistema robotico relaciona el movimiento del robot y las fuerzas del mismo relacionando las ecuaciones matemáticas de las coordenadas articulares, sus velocidades y aceleraciones ademas de las fuerzas y pares implicados en estas articulaciones y por ultimo los parametros del robot (masas, inercias). A continuación estudiaremos el desarollo y la implementación de un control lineal obtenido en el curso de "control of mobile robots"
+
+\
+Existen distintas formas para obtener las ecuaciones dinámicas es partiendo de las ecuaciones del movimiento de Newton o mediante el  metodo de Lagrange. En este caso en particular se utilizaron las denominadas ecuaciones de movimiento de Lagrange.
+
+\
+Las ecuaciones para obtener el lagrangiano son las que se muestran a continuación:
+\
+
+Energia cinética
+ \begin{equation}
+ T=\frac{1}{2} M v^2
+ \label{S}
+ \end{equation}
+ \
+ Energia potencial
+ \begin{equation}
+ U= M G H
+ \label{S}
+ \end{equation}
+ \
+  Lagrangiano
+  \begin{equation}
+  L= T - U
+  \label{S}
+  \end{equation}
+  \
+  Donde M es la masa de los eslabones, v la velocidad del sistema, G representa la gravedad, H es la altura respecto a nuestro punto de referencia y finalmente las ultimas variables
+  \
+  
+  Finalmente para obtener el modelo se plantea:
+  \begin{equation}
+  \frac{d}{dt}(\frac{\delta L}{\delta \dot{\theta} }) - \frac{\delta L}{\delta \theta} = \tau
+  \end{equation} 
+\subsubsection {Representaci\'on del sistema}
+Una ves encontrada la ecuación o ecuaciones diferenciales que decriben el comportamiento del sistema la forma de organizar la informacion del sistema (forma matricial) y aplicar tecnicas de control basadas en sus representaciones.
+ \begin{equation}
+ x=[v \hspace{.2cm} w  \hspace{.2cm} \hspace{.2cm}\phi \hspace{.2cm}\dot{\phi}]
+ \end{equation}
+ \begin{equation}
+ u=[\tau_L \hspace{.2cm} \tau_r]^T
+ \end{equation}
+\begin{equation}
+\dot{x}=f(x,u)
+\end{equation}
+%Donde M representa la matriz de masas y tiene un tamaño de 2x2, C es la matriz Coriolis y es una matriz de 2X2, G es la representación matricial de la gravedad de 2x1, $\tau$ son los torques y es una matriz de x1 y finalmente $\ddot{\theta}$, $\dot{\theta}$ y $\theta$ son la aceleración, velocidad y posición respectivamente.
+  
+  
+  \
+ 
+\
+\subsection {Linealización}
+El sebway robot es un sistema no lineal y como se menciono antes un sistema lineal no tiene un respuesta facil de representar y mas dificil de controlar, afortunadamente para nosotros el metodo de linealidad facilita e proceso.
+
+%insertar imagen de liga
+
+Considere una grafica con curvaturas (figura 1) en ella, que se forma dependiendo de los elementos que contenga. Al trabajar en un rango grande (abarcando mas elementos) las ecuaciones que manejan esta curva son amplias pero conforme se reduce este rango,las ecuaciones de la grafica se reducen. Ahora supongamos que queremos trabajar en un solo punto, cruzando por una tangente se puede decir que en ese punto y puntos cercanos el sistema es lineal y actua como la tangente.
+\
+El análisis en un sistema dinámico no lineal se realiza de forma similar, las ecuaciones no lineales se entienden como las curvaturas y el punto cruzado con la tangente es el punto de operación. Esta tarea se realiza mediante una expansión de series de Taylor dejar con la forma:
+  \begin{equation}
+  \dot{x}(t)=f(x(t),u(t))   \hspace{.3cm} , \hspace{.3cm}   x(t_0)=x0 
+  \end{equation} 
+  \begin{equation}
+  y(t)=h(x(t)) 
+  \end{equation} 
+
+\section{Objetivo general}
+
+Comprobar los resultados obtenidos para el Segway Robot en el curso "control of mobile robots" capitulo 4.4.
+\
+
+Los objetivos particulares para realizar la practica son:
+\begin{itemize}
+	\item Con la dinámica del sistema dada en el modulo 4 del curso  realizar la linealización del sistema en los parametros que se presentan ahi mismo.
+	\
+	\item Observar el comportamiento mediante gráficas, aplicando la linealizacion del sistema en el sistema no lineal, con la ayuda del software MATLAB.
+	\item Simular el sistema en MATLAB con la ayuda de Robotic Toolbox, aplicar la ley de control lineal observando su respuesta como si fuera le sistema en físico.
+\end{itemize}
+
+\section{ Segway Robot}
+Desglosando las características del robot se observa que el robot consta de un carro diferencial como la base de este y un pendulo invertido es la zona superior, como se muestra en figura 2.
+
+\
+insertar figura
+
+\
+Las variables que definen nuestro sistema son dos diferentes una para cada sistema:\\
+Variables carro:
+\
+\begin{equation}
+\dot{x_1}= v cos(\psi)
+\end{equation}
+\begin{equation}
+\dot{x_2}= v sin(\psi)
+\end{equation}
+\begin{equation}
+\dot{\psi}= w
+\end{equation}
+
+Variables pendulo:
+\begin{equation}
+\phi \hspace{.3cm},\hspace{.3cm} \dot{\psi}
+\end{equation}
+Extra states: v, w
+
+Conociendo estos datos se puede obtener la dinámica del robot y siguiendo los pasos correspondientes con la ecuación 1, ecuación 2 y ecuación 3. Quedando de la forma:
+\begin{eqnarray} 
+3(m_w + m_b)\dot{v}-m_b d cos(\phi)\ddot{\phi} +  m_b d sin(\phi)(\dot{\phi}^2 +  \dot{\psi}^2) \nonumber\\= -\frac{1}{R} (\tau_L+\tau_R)
+\end{eqnarray} 
+
+\begin{eqnarray}
+\left(\left(3L^2+\frac{1}{2 R^2}\right)m_w + m_b d^2 sin^2(\phi)\right)\ddot{\psi}\nonumber\\ +  m_b d^2 sin(\phi)cos(\phi)\dot{\psi}\dot{\phi}=\frac{L}{R}\left(\tau_L- \tau_R\right)
+\end{eqnarray} 
+
+
+\begin{eqnarray}
+m_b d cos(\phi) \dot{v} + \left( -m_b d^2 - I_3 \right)\ddot{\phi} + m_b d^2 sin(\phi) cos(\phi) \dot{\phi}^2 \nonumber  \\+ m_b g d sin(\phi)= \tau_L + \tau_R
+\end{eqnarray} 
+
+
+  \begin{equation}
+  A \ddot{X} + C \dot{x} + G = U
+  \end{equation} 
+  
+  Donde:
+	\[ A=
+	\left[\begin{array}{cc}
+	-m_b d cos(\phi) & 0 & 0\\
+	0 & (3L^2+ \frac{1}{2R^2})m_w+m_b d^2 sin^2(\phi)+I_2
+	\\
+	\end{array} \right]\]
+	
+	\[ C\dot{q}=
+	\left[\begin{array}{cc}
+	-2m_2l_1l_2S_2(w_2^2)-m_2l_1l_2S_{21}w_1\\
+	m_2l_1l_2S_2(w_1^2)	
+	\end{array} \right]\]
+	\\	
+	\[G=
+	\left[\begin{array}{cc}
+	(m_1+m_2)gl_1cos(t_1)+m_2gl_2C_{12}\\
+	m_2gl_2C{12}	
+	\end{array} \right]\]
+
+
+\begin{IEEEbiography}{Michael Shell}
+Biography text here.
+\end{IEEEbiography}
+
+\begin{IEEEbiographynophoto}{Jane Doe}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+\end{document}
