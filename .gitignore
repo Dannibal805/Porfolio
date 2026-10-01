@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+.mypy_cache/
+
+# Virtual environments
+venv/
+.venv/
+
+# PyCharm / IntelliJ
+.idea/
+
+# Google Cloud credentials
+Python/Invoice_Py/proyecto-prueba-502523-3fc419b043b5.json
